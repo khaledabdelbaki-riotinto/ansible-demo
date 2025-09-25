@@ -1,0 +1,10 @@
+---
+- name: Run inline Python code in playbook
+  hosts: demo_hosts
+  tasks:
+    - name: Execute Python code directly
+      ansible.builtin.shell: |
+        python3 -c "print('Hello from Python embedded in playbook!')"
+        import sys
+        print('Hello from inline Python!')
+        print('Python version:', sys.version)"

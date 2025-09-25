@@ -1,0 +1,8 @@
+---
+- name: Run inline Bash code in playbook
+  hosts: demo_hosts
+  tasks:
+    - name: Execute Bash code directly
+      ansible.builtin.shell: |
+        echo "Hello from Bash embedded in playbook!"
+        uname -a
