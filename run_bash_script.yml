@@ -1,0 +1,6 @@
+---
+- name: Run a bash script on remote hosts
+  hosts: linux
+  tasks:
+    - name: Execute bash script
+      script: scripts/demo_script.sh
