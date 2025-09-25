@@ -1,0 +1,33 @@
+- name: Query ServiceNow CMDB
+  hosts: demo_hosts
+  gather_facts: no
+
+  tasks:
+    block:
+      - name: Get Azure token
+        riotinto.servicenow.get_azure_token:
+          tenant_id: "{{ sn_az_tenant_id }}"
+          client_id: "{{ sn_az_client_id }}"
+          client_secret: "{{ sn_az_client_secret }}"
+          scope: "{{ sn_scope }}"
+        register: token_result
+
+      # - name: Show token
+      #   debug:
+      #     var: token_result.access_token
+
+      - name: Get Azure Servers from cmdb_ci_win_server
+        riotinto.servicenow.get_cmdb_records:
+          instance_url: "{{ instance_url }}"
+          auth_token: "{{ token_result.access_token }}"
+          subscription_key: "{{ sn_subscription_key }}"
+          table: "cmdb_ci_win_server"
+          sysparm_query: "correlation_idLIKEMicrosoft.Compute"
+          sysparm_fields: "name,correlation_id,os,support_group&sysparm_display_value=true"
+        register: cmdb_output
+
+      - name: Show output
+        debug:
+          var: cmdb_output.response
+    
+    delegate_to: localhost

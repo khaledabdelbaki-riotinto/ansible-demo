@@ -2,7 +2,7 @@
 - name: Copy a local file to remote hosts
   hosts: linux
   tasks:
-    - name: Copy sample.txt to /tmp
+    - name: Copy sample.txt to /var/tmp
       copy:
         src: files/sample.txt
-        dest: /tmp/sample.txt
+        dest: /var/tmp/sample.txt
