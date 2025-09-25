@@ -1,6 +1,6 @@
 ---
 - name: Copy a local file to remote hosts
-  hosts: linux
+  hosts: demo_hosts
   tasks:
     - name: Copy sample.txt to /var/tmp
       copy:

@@ -1,8 +1,8 @@
 ---
 - name: Create a local file on remote hosts
-  hosts: linux
+  hosts: demo_hosts
   tasks:
     - name: Create a file with content
       copy:
-        dest: /tmp/demo_file.txt
+        dest: /var/tmp/demo_file.txt
         content: "This is a demo file created by Ansible."
