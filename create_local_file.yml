@@ -1,8 +1,0 @@
----
-- name: Create a local file on remote hosts
-  hosts: demo_hosts
-  tasks:
-    - name: Create an empty file
-      ansible.builtin.file:
-        path: /var/tmp/demo_file.txt
-        state: touch

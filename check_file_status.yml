@@ -1,0 +1,16 @@
+---
+- name: Check file status on remote hosts
+  hosts: demo_hosts
+  tasks:
+    # - name: Create an empty file
+    #   ansible.builtin.file:
+    #     path: /var/tmp/demo_file.txt
+    #     state: touch
+
+    - name: check if demo_file.txt exists
+      ansible.builtin.stat:
+        path: /var/tmp/demo_file.txt
+      register: demo_file
+    - name: Display file existence status
+      debug:      
+        msg: "File exists: {{ demo_file.stat.exists }}"
