@@ -3,4 +3,4 @@
   hosts: demo_hosts
   tasks:
     - name: Execute bash script
-      script: scripts/demo_script.sh
+      script: scripts/read_file.sh

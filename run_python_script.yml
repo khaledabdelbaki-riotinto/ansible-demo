@@ -3,4 +3,4 @@
   hosts: linux
   tasks:
     - name: Execute python script
-      script: scripts/demo_script.py
+      script: scripts/read_file.py
