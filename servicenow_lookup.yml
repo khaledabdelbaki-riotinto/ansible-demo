@@ -11,19 +11,20 @@
       scope: "{{ sn_scope }}"
     register: token_result
     delegate_to: localhost
+    run_once: true
 
   # - name: Show token
   #   debug:
   #     var: token_result.access_token
 
-  - name: Get Azure Servers from cmdb_ci_win_server
+  - name: Get Azure Servers from cmdb_ci_server
     riotinto.servicenow.get_cmdb_records:
       instance_url: "{{ instance_url }}"
       auth_token: "{{ token_result.access_token }}"
       subscription_key: "{{ sn_subscription_key }}"
-      table: "cmdb_ci_win_server"
-      sysparm_query: "correlation_idLIKEMicrosoft.Compute"
-      sysparm_fields: "name,correlation_id,os,support_group&sysparm_display_value=true"
+      table: "cmdb_ci_server"
+      sysparm_query: "name={{ inventory_hostname }}"
+      # sysparm_fields: "name,correlation_id,os,support_group&sysparm_display_value=true"
     register: cmdb_output
     delegate_to: localhost
 

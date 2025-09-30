@@ -1,2 +1,6 @@
-# ansible_user: '{{ lookup("env", "Username") }}'
-# ansible_password: '{{ lookup("env", "Password") }}'
+instance_url: "https://apim-icc-syd-prd.riotinto.org/servicenow/table/v1/"      # PROD ServiceNow
+sn_subscription_key: '{{ lookup("env", "SN_AZ_SUBSCRIPTION_KEY") }}'
+sn_az_tenant_id: '{{ lookup("env", "SN_AZ_TENANT_ID") }}'
+sn_az_client_id: '{{ lookup("env", "SN_AZ_CLIENT_ID") }}'
+sn_az_client_secret: '{{ lookup("env", "SN_AZ_SECRET") }}'
+sn_scope: '{{ lookup("env", "SN_SCOPE") }}'
