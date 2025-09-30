@@ -1,5 +1,5 @@
 - name: Query ServiceNow CMDB
-  hosts: demo_hosts
+  hosts: all
   gather_facts: no
 
   tasks:
