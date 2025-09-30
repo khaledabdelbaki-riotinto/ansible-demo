@@ -1,3 +1,5 @@
 #!/usr/bin/env python3
-with open('/var/tmp/sample.txt', 'w') as f:
-    f.write('Hello from Python script')
+import sys;
+print('Hello from Python embedded in playbook!'); 
+print('Hello from inline Python!');
+print('Python version:', sys.version)
