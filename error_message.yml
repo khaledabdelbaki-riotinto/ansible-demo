@@ -1,7 +1,8 @@
 - name: Show error message
-  hosts: localhost
+  hosts: demo_hosts
   gather_facts: no
   tasks:
     - name: Display an error message
       ansible.builtin.debug:
         msg: "This is a custom error message for demonstration purposes."
+      when: not server_found

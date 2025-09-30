@@ -34,7 +34,8 @@
     delegate_to: localhost
 
   - name: set fact if server found
-    set_fact:
-      server_found: "{{ (cmdb_output.response.result | length > 0) | ternary(true, false) }}"
+    set_stats:
+      data:
+        server_found: "{{ (cmdb_output.response.result | length > 0) | ternary(true, false) }}"
     delegate_to: localhost
     
