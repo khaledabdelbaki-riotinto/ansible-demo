@@ -1,6 +1,6 @@
 ---
 - name: Run a python script on remote hosts
-  hosts: linux
+  hosts: demo_hosts
   tasks:
     - name: Execute python script
       script: scripts/read_file.py
