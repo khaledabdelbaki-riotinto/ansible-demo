@@ -5,6 +5,3 @@
     - name: Execute Python code directly
       ansible.builtin.shell: |
         python3 -c "print('Hello from Python embedded in playbook!'); import sys; print('Hello from inline Python!'); print('Python version:', sys.version)"
-        import sys
-        print('Hello from inline Python!')
-        print('Python version:', sys.version)"
