@@ -11,6 +11,19 @@
       ansible.builtin.stat:
         path: /var/tmp/demo_file.txt
       register: demo_file
+    
     - name: Display file existence status
       debug:      
         msg: "File exists: {{ demo_file.stat.exists }}"
+
+    - name: create file if it does not exist
+      ansible.builtin.file:
+        path: /var/tmp/demo_file.txt
+        state: touch
+      when: not demo_file.stat.exists
+      register: file_creation 
+
+    - name: Display file creation status
+      debug:      
+        msg: "File was created: {{ file_creation.changed }}"
+      when: file_creation is defined
